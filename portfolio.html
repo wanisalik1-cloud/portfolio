@@ -59,8 +59,11 @@
     .hero-tag{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:3rem;opacity:0;animation:fu .8s ease forwards .2s}
     .hero-name{font-family:var(--fname);font-size:clamp(4.5rem,10vw,8.5rem);font-weight:400;line-height:1;letter-spacing:0px;color:var(--text-main);margin-bottom:2rem;opacity:0;animation:fu .9s ease forwards .35s}
     .hero-name .acc{color:var(--accent)}
-    .hero-ur{font-family:var(--fu);font-size:clamp(1.2rem,2.5vw,2rem);color:var(--muted);direction:rtl;display:block;margin-bottom:3.5rem;opacity:0;animation:fu .9s ease forwards .5s; line-height: 1.8;}
-    .hero-stmt{max-width:540px;font-size:1.15rem;font-weight:400;line-height:1.85;color:var(--text-dim);border-left:1px solid var(--accent);padding-left:1.5rem;opacity:0;animation:fu .9s ease forwards .65s}
+    
+    /* Elegant Hero Quote Formatting */
+    .hero-quote { max-width: 580px; font-family: var(--fu); font-size: 1.35rem; line-height: 2.5; color: var(--text-dim); border-right: 1px solid var(--accent); padding-right: 1.5rem; direction: rtl; opacity: 0; animation: fu .9s ease forwards .5s; }
+    .hero-quote .speaker { color: var(--accent); margin-left: 0.25rem; font-size: 1.25rem; }
+    
     .hero-bg{position:absolute;bottom:-3rem;right:-2rem;font-family:var(--fu);font-size:clamp(9rem,22vw,20rem);color:rgba(44, 42, 38, 0.03);pointer-events:none;user-select:none;line-height:1;direction:rtl}
     @keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
@@ -74,11 +77,15 @@
 
     /* ─── CINEMATIC HORIZONTAL GALLERY ─── */
     .gallery-label { font-family:var(--fm); font-size:9px; letter-spacing:2px; color:var(--muted); text-transform:uppercase; margin-bottom: 1.5rem; display: block; border-left: 1px solid var(--border); padding-left: 1rem;}
-    .exh-gallery { display: flex; gap: 2rem; overflow-x: auto; padding-bottom: 2rem; scroll-snap-type: x mandatory; scrollbar-width: none; margin-bottom: 3rem; }
-    .exh-gallery::-webkit-scrollbar { display: none; }
+    .exh-gallery { display: flex; gap: 2rem; overflow-x: auto; padding-bottom: 2rem; scroll-snap-type: x mandatory; margin-bottom: 3rem; cursor: grab; scrollbar-width: thin; scrollbar-color: var(--border-acc) transparent; }
+    .exh-gallery:active { cursor: grabbing; }
+    .exh-gallery::-webkit-scrollbar { height: 4px; }
+    .exh-gallery::-webkit-scrollbar-track { background: transparent; }
+    .exh-gallery::-webkit-scrollbar-thumb { background: var(--border-acc); border-radius: 4px; }
+    .exh-gallery::-webkit-scrollbar-thumb:hover { background: var(--accent); }
     
     /* Standard & Large Image Formatting */
-    .exh-img { flex: 0 0 auto; width: 540px; aspect-ratio: 4/3; background: var(--bg-2); border: 1px solid var(--border); border-radius: 2px; scroll-snap-align: start; object-fit: cover; display: flex; align-items: center; justify-content: center; color: var(--muted); font-family: var(--fm); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; transition: border-color 0.4s, filter 0.4s; }
+    .exh-img { flex: 0 0 auto; width: 540px; aspect-ratio: 4/3; background: var(--bg-2); border: 1px solid var(--border); border-radius: 2px; scroll-snap-align: start; object-fit: cover; display: flex; align-items: center; justify-content: center; color: var(--muted); font-family: var(--fm); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; transition: border-color 0.4s, filter 0.4s; user-select: none; -webkit-user-drag: none; }
     .exh-img:hover { border-color: var(--border-acc); filter: brightness(1.05); cursor: pointer; color: var(--text-main); }
     .exh-img.large { width: 860px; aspect-ratio: 16/9; }
 
@@ -129,13 +136,14 @@
       .mob-dl{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);text-decoration:none}
       .hero, .section-pad{padding-left:2rem;padding-right:2rem}
       .hero{min-height:85vh}
+      .hero-quote { border-right: none; padding-right: 0; text-align: right; }
       .timeline { padding-left: 2rem; margin-left: 0.5rem; }
       .chapter::before { left: -2.35rem; }
       
       /* Mobile Gallery Formatting */
       .exh-gallery { gap: 1rem; padding-bottom: 1rem; }
       .exh-img { width: 85vw; max-width: 420px; }
-      .exh-img.large { width: 90vw; max-width: 500px; aspect-ratio: 4/3; /* Taller on mobile for better visibility */ }
+      .exh-img.large { width: 90vw; max-width: 500px; aspect-ratio: 4/3; }
       
       .contact-grid{grid-template-columns:1fr;gap:3rem}
       footer{padding:2rem;flex-direction:column;gap:.75rem;text-align:center}
@@ -179,14 +187,18 @@
 
   <!-- Hero -->
   <section id="home" class="hero">
-    <div class="hero-tag">A Career Journey</div>
+    <div class="hero-tag">A Career Journey — 2026</div>
     <h1 class="hero-name">
       Salik<br><span class="acc">Wani</span>
     </h1>
-    <p class="hero-stmt">
-     درویش:خِرَد را چه مقام، گر آرزویِ سماع است؟
-مردِ سبیلو: “مردِ دل داند؛ خرد، بندِ مکان است
-    </p>
+    
+    <!-- Polished RTL Quote Formatting -->
+    <div class="hero-quote">
+      <span class="speaker">درویش:</span> خِرَد را چه مقام، گر آرزویِ سماع است؟<br>
+      <span class="speaker">مردِ سبیلو:</span> مردِ دل داند؛ خرد، بندِ مکان است.
+    </div>
+
+    <div class="hero-bg" aria-hidden="true">الفاظ</div>
   </section>
 
   <!-- LATEST WORK -->
@@ -199,9 +211,9 @@
     <div class="exh-gallery fi fi-d2">
       <!-- Once on Cloudinary, swap this div for an img tag like: -->
       <!-- <img src="URL" class="exh-img large" alt="Title" loading="lazy"> -->
-      <div class="exh-img large">Upload Latest Work</div>
-      <div class="exh-img large">Upload Latest Work</div>
-      <div class="exh-img large">Upload Latest Work</div>
+      <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848120/photo_2026-06-07_21-31-33_ctwkdb.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+      <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848120/photo_2026-06-07_21-18-33_hrogkp.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+      <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848120/photo_2026-06-07_21-18-41_vsh5vt.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
     </div>
   </section>
 
@@ -221,11 +233,10 @@
         
         <span class="gallery-label">Selected Field Works</span>
         <div class="exh-gallery">
-          <div class="exh-img">Dal, Dawn (2023)</div>
-          <div class="exh-img">Ridge, Autumn (2023)</div>
-          <div class="exh-img">Valley Floor (2022)</div>
-          <div class="exh-img">Winter Field (2021)</div>
-          <div class="exh-img">Study: Light (2021)</div>
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848590/photo_2026-06-07_21-39-10_fxru2z.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848726/photo_2026-06-07_21-41-51_cnuahw.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848590/photo_2026-06-07_21-39-14_xqog6z.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+          
         </div>
       </div>
 
@@ -239,15 +250,15 @@
         
         <span class="gallery-label">Community & Workshops</span>
         <div class="exh-gallery" style="margin-bottom: 0;">
-          <div class="exh-img">Upload Alfaaz Photo</div>
-          <div class="exh-img">Upload Alfaaz Photo</div>
-          <div class="exh-img">Upload Alfaaz Photo</div>
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849094/photo_2026-06-07_21-47-41_przq0r.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849094/photo_2026-06-07_21-47-49_t8acww.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849094/photo_2026-06-07_21-47-44_cmgeuz.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
         </div>
       </div>
 
       <!-- Track 3: Exhibitions -->
       <div id="chapter-3" class="chapter fi">
-        <span class="c-meta">2020 — 2024</span>
+        <span class="c-meta">2020 — 2026</span>
         <h2 class="c-title">The <em>Exhibitions.</em></h2>
         <p class="c-text">
           The culmination of the collective's organizing and my visual practice. These exhibitions serve as critical checkpoints in the journey, where internal curation meets public encounter.
@@ -262,9 +273,9 @@
           <span class="em-year">2024</span>
         </div>
         <div class="exh-gallery">
-          <div class="exh-img">Upload Photo</div>
-          <div class="exh-img">Upload Photo</div>
-          <div class="exh-img">Upload Photo</div>
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849439/photo_2026-06-07_21-53-11_ohqdjn.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849439/photo_2026-06-07_21-53-08_xalohi.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+       
         </div>
 
         <!-- Bayaan 2023 -->
@@ -276,9 +287,9 @@
           <span class="em-year">2023</span>
         </div>
         <div class="exh-gallery">
-          <div class="exh-img">Upload Photo</div>
-          <div class="exh-img">Upload Photo</div>
-          <div class="exh-img">Upload Photo</div>
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780850152/photo_2026-06-07_22-05-20_w5fehi.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780850152/photo_2026-06-07_22-05-23_hfjubl.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+          
         </div>
 
         <!-- Kaamil 2022 -->
@@ -290,8 +301,9 @@
           <span class="em-year">2022</span>
         </div>
         <div class="exh-gallery">
-          <div class="exh-img">Upload Photo</div>
-          <div class="exh-img">Upload Photo</div>
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849692/photo_2026-06-07_21-57-42_jb8lwj.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849691/photo_2026-06-07_21-57-39_coy71i.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+          
         </div>
 
         <!-- Harud 2020 -->
@@ -303,8 +315,8 @@
           <span class="em-year">2020</span>
         </div>
         <div class="exh-gallery" style="margin-bottom: 3rem;">
-          <div class="exh-img">Upload Photo</div>
-          <div class="exh-img">Upload Photo</div>
+           <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780850247/photo_2026-06-07_22-07-00_pe5zka.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+           <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780850247/photo_2026-06-07_22-07-04_xhshmt.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
         </div>
         
         <p class="c-text" style="margin-bottom: 1.5rem; font-size: 1rem;">
@@ -328,9 +340,9 @@
         <p class="contact-p fi fi-d1">Open to residency programs, collaborative exhibitions, curatorial conversations, and international partnerships. Based in Srinagar; available for travel.</p>
       </div>
       <div class="c-links fi fi-d1">
-        <a href="mailto:your@email.com" class="c-row">
+        <a href="mailto:wanisalik1@gmail.com" class="c-row">
           <span class="c-lbl">Email</span>
-          <span class="c-val">your@email.com</span>
+          <span class="c-val">wanisalik1@gmail.com</span>
           <span class="c-arr">↗</span>
         </a>
         <a href="https://alfaazcollective.vercel.app" target="_blank" class="c-row">
@@ -349,20 +361,20 @@
   </section>
 
   <footer>
-    <span class="f-copy">© 2024 Salik Wani · Srinagar, Kashmir</span>
+    <span class="f-copy">© 2026 Salik Wani · Srinagar, Kashmir</span>
     <span class="f-copy">alfaazcollective.vercel.app</span>
   </footer>
 
 </main>
 
 <script>
-  // Scroll fade-ins
+  // 1. Scroll fade-ins
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('v') });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fi').forEach(el => io.observe(el));
 
-  // Active nav mapping
+  // 2. Active nav mapping
   const targets = document.querySelectorAll('section[id], div[id^="chapter"]');
   const links = document.querySelectorAll('.s-nav a');
   const sio = new IntersectionObserver(entries => {
@@ -375,6 +387,39 @@
     });
   }, { threshold: 0.3 });
   targets.forEach(t => sio.observe(t));
+
+  // 3. Drag-to-Scroll for Galleries (Desktop)
+  const sliders = document.querySelectorAll('.exh-gallery');
+  sliders.forEach(slider => {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+      slider.style.scrollSnapType = 'none'; 
+    });
+
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.style.scrollSnapType = 'x mandatory';
+    });
+
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.style.scrollSnapType = 'x mandatory';
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 1.5; 
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  });
 </script>
 </body>
 </html>
