@@ -85,9 +85,24 @@
     .exh-gallery::-webkit-scrollbar-thumb:hover { background: var(--accent); }
     
     /* Standard & Large Image Formatting */
-    .exh-img { flex: 0 0 auto; width: 540px; aspect-ratio: 4/3; background: var(--bg-2); border: 1px solid var(--border); border-radius: 2px; scroll-snap-align: start; object-fit: cover; display: flex; align-items: center; justify-content: center; color: var(--muted); font-family: var(--fm); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; transition: border-color 0.4s, filter 0.4s; user-select: none; -webkit-user-drag: none; }
+    .exh-img { 
+      flex: 0 0 auto; 
+      height: 420px; 
+      width: auto;   
+      max-width: 85vw; 
+      background: var(--bg-2); 
+      border: 1px solid var(--border); 
+      border-radius: 2px; 
+      scroll-snap-align: start; 
+      object-fit: contain; 
+      display: flex; align-items: center; justify-content: center; 
+      color: var(--muted); font-family: var(--fm); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; 
+      transition: border-color 0.4s, filter 0.4s; 
+      user-select: none; -webkit-user-drag: none; 
+      padding: 0 1rem; 
+    }
     .exh-img:hover { border-color: var(--border-acc); filter: brightness(1.05); cursor: pointer; color: var(--text-main); }
-    .exh-img.large { width: 860px; aspect-ratio: 16/9; }
+    .exh-img.large { height: 580px; }
 
     /* ─── JOURNEY TIMELINE ─── */
     .timeline { border-left: 1px solid var(--border-acc); padding-left: 4.5rem; position: relative; margin-left: 1rem; }
@@ -142,8 +157,8 @@
       
       /* Mobile Gallery Formatting */
       .exh-gallery { gap: 1rem; padding-bottom: 1rem; }
-      .exh-img { width: 85vw; max-width: 420px; }
-      .exh-img.large { width: 90vw; max-width: 500px; aspect-ratio: 4/3; }
+      .exh-img { height: 320px; }
+      .exh-img.large { height: 400px; }
       
       .contact-grid{grid-template-columns:1fr;gap:3rem}
       footer{padding:2rem;flex-direction:column;gap:.75rem;text-align:center}
@@ -209,11 +224,9 @@
       Recent completions from the studio and the field. An immediate look at current material and visual inquiries.
     </p>
     <div class="exh-gallery fi fi-d2">
-      <!-- Once on Cloudinary, swap this div for an img tag like: -->
-      <!-- <img src="URL" class="exh-img large" alt="Title" loading="lazy"> -->
-      <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848120/photo_2026-06-07_21-31-33_ctwkdb.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
-      <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848120/photo_2026-06-07_21-18-33_hrogkp.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
-      <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848120/photo_2026-06-07_21-18-41_vsh5vt.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+      <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848120/photo_2026-06-07_21-31-33_ctwkdb.jpg" class="exh-img large" alt="Latest artwork 1" loading="lazy">
+      <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848120/photo_2026-06-07_21-18-33_hrogkp.jpg" class="exh-img large" alt="Latest artwork 2" loading="lazy">
+      <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848120/photo_2026-06-07_21-18-41_vsh5vt.jpg" class="exh-img large" alt="Latest artwork 3" loading="lazy">
     </div>
   </section>
 
@@ -233,10 +246,9 @@
         
         <span class="gallery-label">Selected Field Works</span>
         <div class="exh-gallery">
-          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848590/photo_2026-06-07_21-39-10_fxru2z.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
-          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848726/photo_2026-06-07_21-41-51_cnuahw.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
-          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848590/photo_2026-06-07_21-39-14_xqog6z.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
-          
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848590/photo_2026-06-07_21-39-10_fxru2z.jpg" class="exh-img" alt="Landscape Study 1" loading="lazy">
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848726/photo_2026-06-07_21-41-51_cnuahw.jpg" class="exh-img" alt="Landscape Study 2" loading="lazy">
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780848590/photo_2026-06-07_21-39-14_xqog6z.jpg" class="exh-img" alt="Landscape Study 3" loading="lazy">
         </div>
       </div>
 
@@ -250,9 +262,9 @@
         
         <span class="gallery-label">Community & Workshops</span>
         <div class="exh-gallery" style="margin-bottom: 0;">
-          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849094/photo_2026-06-07_21-47-41_przq0r.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
-          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849094/photo_2026-06-07_21-47-49_t8acww.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
-          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849094/photo_2026-06-07_21-47-44_cmgeuz.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849094/photo_2026-06-07_21-47-41_przq0r.jpg" class="exh-img" alt="Alfaaz Workshop 1" loading="lazy">
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849094/photo_2026-06-07_21-47-49_t8acww.jpg" class="exh-img" alt="Alfaaz Workshop 2" loading="lazy">
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849094/photo_2026-06-07_21-47-44_cmgeuz.jpg" class="exh-img" alt="Alfaaz Workshop 3" loading="lazy">
         </div>
       </div>
 
@@ -273,9 +285,8 @@
           <span class="em-year">2024</span>
         </div>
         <div class="exh-gallery">
-          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849439/photo_2026-06-07_21-53-11_ohqdjn.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
-          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849439/photo_2026-06-07_21-53-08_xalohi.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
-       
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849439/photo_2026-06-07_21-53-11_ohqdjn.jpg" class="exh-img" alt="Khayaal Exhibition Image 1" loading="lazy">
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849439/photo_2026-06-07_21-53-08_xalohi.jpg" class="exh-img" alt="Khayaal Exhibition Image 2" loading="lazy">
         </div>
 
         <!-- Bayaan 2023 -->
@@ -287,9 +298,8 @@
           <span class="em-year">2023</span>
         </div>
         <div class="exh-gallery">
-          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780850152/photo_2026-06-07_22-05-20_w5fehi.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
-          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780850152/photo_2026-06-07_22-05-23_hfjubl.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
-          
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780850152/photo_2026-06-07_22-05-20_w5fehi.jpg" class="exh-img" alt="Bayaan Exhibition Image 1" loading="lazy">
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780850152/photo_2026-06-07_22-05-23_hfjubl.jpg" class="exh-img" alt="Bayaan Exhibition Image 2" loading="lazy">
         </div>
 
         <!-- Kaamil 2022 -->
@@ -301,9 +311,8 @@
           <span class="em-year">2022</span>
         </div>
         <div class="exh-gallery">
-          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849692/photo_2026-06-07_21-57-42_jb8lwj.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
-          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849691/photo_2026-06-07_21-57-39_coy71i.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
-          
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849692/photo_2026-06-07_21-57-42_jb8lwj.jpg" class="exh-img" alt="Kaamil Exhibition Image 1" loading="lazy">
+          <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780849691/photo_2026-06-07_21-57-39_coy71i.jpg" class="exh-img" alt="Kaamil Exhibition Image 2" loading="lazy">
         </div>
 
         <!-- Harud 2020 -->
@@ -315,8 +324,8 @@
           <span class="em-year">2020</span>
         </div>
         <div class="exh-gallery" style="margin-bottom: 3rem;">
-           <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780850247/photo_2026-06-07_22-07-00_pe5zka.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
-           <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780850247/photo_2026-06-07_22-07-04_xhshmt.jpg" class="exh-img large" alt="Latest artwork title" loading="lazy">
+           <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780850247/photo_2026-06-07_22-07-00_pe5zka.jpg" class="exh-img" alt="Harud Exhibition Image 1" loading="lazy">
+           <img src="https://res.cloudinary.com/dvgmlzsb9/image/upload/v1780850247/photo_2026-06-07_22-07-04_xhshmt.jpg" class="exh-img" alt="Harud Exhibition Image 2" loading="lazy">
         </div>
         
         <p class="c-text" style="margin-bottom: 1.5rem; font-size: 1rem;">
