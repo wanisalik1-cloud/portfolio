@@ -3,144 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Salik — Artist · Organizer · Kashmir</title>
+  <title>Salik Wani — Artist · Based in Kashmir</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Noto+Nastaliq+Urdu:wght@400;700&family=Marcellus&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:          #0c0a08;
-      --bg-2:        #131109;
-      --bg-3:        #1b1916;
-      --cream:       #e8e2d9;
-      --cream-dim:   #b0a89e;
-      --muted:       #6a6258;
-      --accent:      #c4714d;
-      --accent-dim:  rgba(196,113,77,.12);
-      --border:      rgba(232,226,217,.07);
-      --border-acc:  rgba(196,113,77,.28);
+      /* Cream & Pastel Palette */
+      --bg:          #F4F1EA;
+      --bg-2:        #EAE5DC;
+      --bg-3:        #DFD9CE; 
+      --text-main:   #2C2A26;
+      --text-dim:    #5A554E;
+      --muted:       #8A8276;
+      --accent:      #B66546;
+      --accent-dim:  rgba(182, 101, 70, 0.08);
+      --border:      rgba(44, 42, 38, 0.1);
+      --border-acc:  rgba(182, 101, 70, 0.3);
       --sidebar-w:   260px;
+      
+      /* Typography */
+      --fname:       'Marcellus', serif;
       --fd:          'Cormorant Garamond', Georgia, serif;
       --fm:          'DM Mono', monospace;
       --fu:          'Noto Nastaliq Urdu', serif;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--cream);font-family:var(--fd);min-height:100vh;overflow-x:hidden}
+    body{background:var(--bg);color:var(--text-main);font-family:var(--fd);min-height:100vh;overflow-x:hidden}
 
     /* grain */
-    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04;pointer-events:none;z-index:999}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.04;mix-blend-mode:multiply;pointer-events:none;z-index:999}
 
     /* ─── SIDEBAR ─── */
     .sidebar{position:fixed;top:0;left:0;width:var(--sidebar-w);height:100vh;border-right:1px solid var(--border);display:flex;flex-direction:column;padding:3rem 2.5rem;z-index:100;background:var(--bg)}
-    .s-name{font-family:var(--fd);font-size:1.5rem;font-weight:300;line-height:1.15;color:var(--cream);margin-bottom:.4rem}
-    .s-name em{font-style:italic;color:var(--accent)}
-    .s-ur{font-family:var(--fu);font-size:.9rem;color:var(--muted);display:block;margin-bottom:1.5rem;direction:rtl}
+    .s-name{font-family:var(--fname);font-size:1.5rem;font-weight:400;line-height:1.15;color:var(--text-main);margin-bottom:.4rem; letter-spacing: 1px;}
+    .s-ur{font-family:var(--fu);font-size:.9rem;color:var(--muted);display:block;margin-bottom:1.5rem;direction:rtl; line-height: 1.8;}
     .s-meta{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);line-height:2.2}
     .s-rule{width:24px;height:1px;background:var(--border-acc);margin:2rem 0}
     .s-nav{display:flex;flex-direction:column;gap:.1rem;flex:1}
     .s-nav a{font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:.5rem 0;display:flex;align-items:center;gap:.75rem;transition:color .3s}
     .s-nav a::before{content:'';width:14px;height:1px;background:currentColor;flex-shrink:0;transition:width .3s,background .3s}
-    .s-nav a:hover,.s-nav a.active{color:var(--cream)}
+    .s-nav a:hover,.s-nav a.active{color:var(--text-main)}
     .s-nav a:hover::before,.s-nav a.active::before{width:22px;background:var(--accent)}
     .s-bottom{margin-top:auto}
-    .dl-btn{display:block;font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);text-decoration:none;border:1px solid var(--border-acc);padding:.85rem 1rem;text-align:center;margin-bottom:1.5rem;transition:all .3s}
+    .dl-btn{display:block;font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-main);text-decoration:none;border:1px solid var(--border-acc);padding:.85rem 1rem;text-align:center;margin-bottom:1.5rem;transition:all .3s}
     .dl-btn:hover{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
     .s-links{display:flex;gap:1.2rem}
     .s-links a{font-family:var(--fm);font-size:9px;letter-spacing:1px;color:var(--muted);text-decoration:none;transition:color .3s}
     .s-links a:hover{color:var(--accent)}
 
-    /* ─── MAIN ─── */
+    /* ─── MAIN & HERO ─── */
     .main{margin-left:var(--sidebar-w);min-height:100vh}
-
-    /* ─── HERO ─── */
-    .hero{padding:5rem 5rem 5rem;border-bottom:1px solid var(--border);min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+    .hero{padding:6rem 5rem 5rem;border-bottom:1px solid var(--border);min-height:90vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
     .hero-tag{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:3rem;opacity:0;animation:fu .8s ease forwards .2s}
-    .hero-name{font-family:var(--fd);font-size:clamp(5rem,12vw,10.5rem);font-weight:300;font-style:italic;line-height:.9;letter-spacing:-2px;color:var(--cream);margin-bottom:2.5rem;opacity:0;animation:fu .9s ease forwards .35s}
+    .hero-name{font-family:var(--fname);font-size:clamp(4.5rem,10vw,8.5rem);font-weight:400;line-height:1;letter-spacing:0px;color:var(--text-main);margin-bottom:2rem;opacity:0;animation:fu .9s ease forwards .35s}
     .hero-name .acc{color:var(--accent)}
-    .hero-ur{font-family:var(--fu);font-size:clamp(1.2rem,2.5vw,2rem);color:var(--muted);direction:rtl;display:block;margin-bottom:3rem;opacity:0;animation:fu .9s ease forwards .5s}
-    .hero-stmt{max-width:540px;font-size:1.15rem;font-weight:300;line-height:1.85;color:var(--cream-dim);border-left:1px solid var(--accent);padding-left:1.5rem;opacity:0;animation:fu .9s ease forwards .65s}
-    .hero-bg{position:absolute;bottom:-3rem;right:-2rem;font-family:var(--fu);font-size:clamp(9rem,22vw,20rem);color:rgba(232,226,217,.018);pointer-events:none;user-select:none;line-height:1;direction:rtl}
+    .hero-ur{font-family:var(--fu);font-size:clamp(1.2rem,2.5vw,2rem);color:var(--muted);direction:rtl;display:block;margin-bottom:3.5rem;opacity:0;animation:fu .9s ease forwards .5s; line-height: 1.8;}
+    .hero-stmt{max-width:540px;font-size:1.15rem;font-weight:400;line-height:1.85;color:var(--text-dim);border-left:1px solid var(--accent);padding-left:1.5rem;opacity:0;animation:fu .9s ease forwards .65s}
+    .hero-bg{position:absolute;bottom:-3rem;right:-2rem;font-family:var(--fu);font-size:clamp(9rem,22vw,20rem);color:rgba(44, 42, 38, 0.03);pointer-events:none;user-select:none;line-height:1;direction:rtl}
     @keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-    /* ─── SECTION BASE ─── */
-    section{padding:6rem 5rem;border-bottom:1px solid var(--border)}
-    .s-label{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:3rem;display:flex;align-items:center;gap:1rem}
+    /* ─── COMMON SECTION STYLES ─── */
+    .section-pad { padding: 6rem 5rem; border-bottom: 1px solid var(--border); }
+    .s-label{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:4rem;display:flex;align-items:center;gap:1rem}
     .s-label::after{content:'';flex:1;height:1px;background:var(--border);max-width:80px}
-    .s-title{font-family:var(--fd);font-size:clamp(2.5rem,5vw,4rem);font-weight:300;line-height:1.1;color:var(--cream);margin-bottom:2rem}
-    .s-title em{font-style:italic;color:var(--accent)}
+    .c-title { font-family: var(--fd); font-size: clamp(2.5rem, 4.5vw, 3.5rem); font-weight: 300; line-height: 1.1; color: var(--text-main); margin-bottom: 2rem; }
+    .c-title em { font-style: italic; color: var(--accent); }
+    .c-text { font-size: 1.15rem; line-height: 1.95; color: var(--text-dim); max-width: 680px; font-weight: 400; margin-bottom: 3rem; }
 
-    /* ─── PRACTICE ─── */
-    .practice-stmt{font-size:1.18rem;line-height:1.95;color:var(--cream-dim);max-width:680px;font-weight:300;margin-bottom:4rem}
-    .disc-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border)}
-    .disc{padding:2rem 1.5rem 2rem 0;border-bottom:1px solid var(--border);border-right:1px solid var(--border)}
-    .disc:last-child{border-right:none}
-    .disc-n{font-family:var(--fm);font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:.7rem}
-    .disc-name{font-family:var(--fd);font-size:1.25rem;font-weight:400;color:var(--cream);margin-bottom:.3rem}
-    .disc-ur{font-family:var(--fu);font-size:.85rem;color:var(--accent);direction:rtl;display:block;margin-bottom:.6rem}
-    .disc-desc{font-family:var(--fm);font-size:9.5px;letter-spacing:.3px;color:var(--muted);line-height:1.75}
-
-    /* ─── WORKS ─── */
-    .works-note-top{font-family:var(--fm);font-size:9px;letter-spacing:1px;color:var(--muted);margin-bottom:2.5rem;line-height:1.9;border-left:1px solid var(--border);padding-left:1rem}
-    .works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-bottom:1px}
-    .work{background:var(--bg);aspect-ratio:4/3;position:relative;overflow:hidden;cursor:default}
-    .work-ph{width:100%;height:100%;background:var(--bg-2);display:flex;align-items:center;justify-content:center;transition:background .4s}
-    .work:hover .work-ph{background:var(--bg-3)}
-    .work-ph-inner{display:flex;flex-direction:column;align-items:center;gap:.8rem}
-    .work-ph-box{width:28px;height:28px;border:1px solid rgba(232,226,217,.12)}
-    .work-ph-lbl{font-family:var(--fm);font-size:8px;letter-spacing:2px;color:rgba(232,226,217,.2);text-transform:uppercase}
-    .work-meta{position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(transparent,rgba(12,10,8,.92));transform:translateY(100%);transition:transform .3s ease}
-    .work:hover .work-meta{transform:translateY(0)}
-    .work-title{font-family:var(--fd);font-size:.95rem;font-style:italic;color:var(--cream);display:block;margin-bottom:.2rem}
-    .work-info{font-family:var(--fm);font-size:8.5px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
-    .works-note{font-family:var(--fm);font-size:9px;letter-spacing:1px;color:var(--muted);text-align:center;padding:.75rem;border:1px solid var(--border)}
-
-    /* ─── ALFAAZ ─── */
-    .alfaaz-hd{display:grid;grid-template-columns:1fr auto;align-items:end;gap:2rem;margin-bottom:2.5rem}
-    .alfaaz-link{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--border-acc);padding-bottom:2px;transition:border-color .3s;white-space:nowrap}
-    .alfaaz-link:hover{border-color:var(--accent)}
-    .alfaaz-desc{font-size:1.1rem;line-height:1.9;color:var(--cream-dim);font-weight:300;max-width:620px;margin-bottom:4rem}
-    .exh-list{display:grid;gap:0}
-    .exh-item { border-bottom: 1px solid var(--border); transition: all .3s; }
-    .exh-item:first-child { border-top: 1px solid var(--border); }
-    .exh-row { display: grid; grid-template-columns: 3rem 1fr auto; align-items: center; gap: 2rem; padding: 1.5rem 0; cursor: pointer; }
-    .exh-item:hover .exh-title { color: var(--accent); }
-    .exh-n{font-family:var(--fm);font-size:10px;letter-spacing:1px;color:var(--muted)}
-    .exh-title{font-family:var(--fd);font-size:1.65rem;font-weight:400;font-style:italic;color:var(--cream);transition:color .3s;display:block;margin-bottom:.2rem}
-    .exh-sub{font-family:var(--fm);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
-    .exh-yr{font-family:var(--fm);font-size:10px;letter-spacing:1px;color:var(--muted);text-align:right}
+    /* ─── CINEMATIC HORIZONTAL GALLERY ─── */
+    .gallery-label { font-family:var(--fm); font-size:9px; letter-spacing:2px; color:var(--muted); text-transform:uppercase; margin-bottom: 1.5rem; display: block; border-left: 1px solid var(--border); padding-left: 1rem;}
+    .exh-gallery { display: flex; gap: 2rem; overflow-x: auto; padding-bottom: 2rem; scroll-snap-type: x mandatory; scrollbar-width: none; margin-bottom: 3rem; }
+    .exh-gallery::-webkit-scrollbar { display: none; }
     
-    /* Horizontal Scroll Gallery */
-    .exh-gallery { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1.5rem; scroll-snap-type: x mandatory; scrollbar-width: none; /* Firefox */ }
-    .exh-gallery::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
-    .exh-img { flex: 0 0 auto; width: 220px; aspect-ratio: 4/3; background: var(--bg-2); border: 1px solid var(--border); border-radius: 2px; scroll-snap-align: start; object-fit: cover; display: flex; align-items: center; justify-content: center; color: var(--muted); font-family: var(--fm); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; transition: border-color 0.3s, filter 0.3s; filter: brightness(0.8); }
-    .exh-img:hover { border-color: var(--border-acc); filter: brightness(1.1); cursor: pointer; }
+    /* Standard & Large Image Formatting */
+    .exh-img { flex: 0 0 auto; width: 540px; aspect-ratio: 4/3; background: var(--bg-2); border: 1px solid var(--border); border-radius: 2px; scroll-snap-align: start; object-fit: cover; display: flex; align-items: center; justify-content: center; color: var(--muted); font-family: var(--fm); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; transition: border-color 0.4s, filter 0.4s; }
+    .exh-img:hover { border-color: var(--border-acc); filter: brightness(1.05); cursor: pointer; color: var(--text-main); }
+    .exh-img.large { width: 860px; aspect-ratio: 16/9; }
 
-    /* ─── CV ─── */
-    .cv-block{display:grid;grid-template-columns:180px 1fr;gap:2.5rem;margin-bottom:3rem}
-    .cv-cat{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);padding-top:.15rem}
-    .cv-items{border-left:1px solid var(--border);padding-left:2.5rem;display:flex;flex-direction:column}
-    .cv-item{padding:1.1rem 0;border-bottom:1px solid var(--border)}
-    .cv-item:first-child{padding-top:0}
-    .cv-item:last-child{border-bottom:none}
-    .cv-t{font-family:var(--fd);font-size:1.1rem;font-weight:400;color:var(--cream);margin-bottom:.2rem}
-    .cv-m{font-family:var(--fm);font-size:9px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+    /* ─── JOURNEY TIMELINE ─── */
+    .timeline { border-left: 1px solid var(--border-acc); padding-left: 4.5rem; position: relative; margin-left: 1rem; }
+    .chapter { margin-bottom: 10rem; position: relative; }
+    .chapter:last-child { margin-bottom: 0; }
+    .chapter::before { content: ''; position: absolute; left: -4.85rem; top: 0.3rem; width: 14px; height: 14px; background: var(--bg); border: 2px solid var(--accent); border-radius: 50%; transition: background 0.3s; }
+    .chapter:hover::before { background: var(--accent); }
+    
+    .c-meta { font-family: var(--fm); font-size: 10px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; display: block; }
+    
+    /* Exh Data Row */
+    .exh-meta-row { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); margin-bottom: 1.5rem; max-width: 900px;}
+    .em-title { font-family: var(--fd); font-size: 1.45rem; font-style: italic; color: var(--text-main); padding-bottom: 0.2rem; }
+    .em-sub { font-family: var(--fm); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); display: block; margin-top: 0.4rem;}
+    .em-year { font-family: var(--fm); font-size: 11px; color: var(--accent); }
 
     /* ─── CONTACT ─── */
     .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
-    .contact-h{font-family:var(--fd);font-size:clamp(2rem,4vw,3.5rem);font-weight:300;font-style:italic;line-height:1.2;color:var(--cream);margin-bottom:1.5rem}
-    .contact-p{font-size:1rem;line-height:1.85;color:var(--cream-dim);font-weight:300}
+    .contact-h{font-family:var(--fd);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:300;font-style:italic;line-height:1.2;color:var(--text-main);margin-bottom:1.5rem}
+    .contact-p{font-size:1.1rem;line-height:1.85;color:var(--text-dim);font-weight:400}
     .c-links{display:flex;flex-direction:column}
     .c-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid var(--border);text-decoration:none;transition:all .3s;cursor:pointer}
     .c-row:first-child{border-top:1px solid var(--border)}
     .c-row:hover .c-lbl{color:var(--accent)}
     .c-row:hover .c-arr{transform:translate(3px,-3px);color:var(--accent)}
-    .c-lbl{font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--cream);transition:color .3s}
+    .c-lbl{font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-main);transition:color .3s}
     .c-val{font-family:var(--fm);font-size:10px;color:var(--muted)}
     .c-arr{color:var(--muted);transition:all .3s;font-size:14px}
 
-    /* ─── FOOTER ─── */
-    footer{padding:2rem 5rem;display:flex;justify-content:space-between;align-items:center}
+    footer{padding:2rem 5rem;display:flex;justify-content:space-between;align-items:center; border-top: 1px solid var(--border);}
     .f-copy{font-family:var(--fm);font-size:9px;letter-spacing:1px;color:var(--muted)}
 
     /* ─── SCROLL ANIM ─── */
@@ -148,7 +118,6 @@
     .fi.v{opacity:1;transform:translateY(0)}
     .fi-d1{transition-delay:.1s}
     .fi-d2{transition-delay:.2s}
-    .fi-d3{transition-delay:.3s}
 
     /* ─── MOBILE ─── */
     .mob-hd{display:none}
@@ -156,30 +125,20 @@
       .sidebar{display:none}
       .main{margin-left:0}
       .mob-hd{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:100}
-      .mob-name{font-family:var(--fd);font-size:1.15rem;font-weight:300;font-style:italic;color:var(--cream)}
+      .mob-name{font-family:var(--fname);font-size:1.15rem;font-weight:400;color:var(--text-main)}
       .mob-dl{font-family:var(--fm);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);text-decoration:none}
-      .hero,.hero~section{padding-left:2rem;padding-right:2rem}
+      .hero, .section-pad{padding-left:2rem;padding-right:2rem}
       .hero{min-height:85vh}
-      section{padding-top:4rem;padding-bottom:4rem}
-      .disc-grid{grid-template-columns:repeat(2,1fr)}
-      .disc:nth-child(2){border-right:none}
-      .disc:nth-child(3){border-bottom:none}
-      .disc:nth-child(4){border-right:none;border-bottom:none}
-      .works-grid{grid-template-columns:repeat(2,1fr)}
-      .cv-block{grid-template-columns:1fr;gap:.5rem}
-      .cv-items{margin-bottom:2.5rem}
+      .timeline { padding-left: 2rem; margin-left: 0.5rem; }
+      .chapter::before { left: -2.35rem; }
+      
+      /* Mobile Gallery Formatting */
+      .exh-gallery { gap: 1rem; padding-bottom: 1rem; }
+      .exh-img { width: 85vw; max-width: 420px; }
+      .exh-img.large { width: 90vw; max-width: 500px; aspect-ratio: 4/3; /* Taller on mobile for better visibility */ }
+      
       .contact-grid{grid-template-columns:1fr;gap:3rem}
       footer{padding:2rem;flex-direction:column;gap:.75rem;text-align:center}
-      .alfaaz-hd{grid-template-columns:1fr;gap:1rem}
-      .exh-row{grid-template-columns:2.5rem 1fr;gap:1rem}
-      .exh-yr{display:none}
-      .exh-img{width:180px}
-    }
-    @media(max-width:480px){
-      .disc-grid{grid-template-columns:1fr}
-      .disc{border-right:none}
-      .disc:last-child{border-bottom:none}
-      .works-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -188,31 +147,31 @@
 <!-- Sidebar -->
 <aside class="sidebar">
   <div>
-    <div class="s-name">Salik<br><em>[Surname]</em></div>
-    <span class="s-ur">سالک</span>
-    <div class="s-meta">Artist · Organizer<br>Srinagar, Kashmir</div>
+    <div class="s-name">Salik Wani</div>
+    <span class="s-ur">سالک وانی</span>
+    <div class="s-meta">Artist<br>Srinagar, Kashmir</div>
   </div>
   <div class="s-rule"></div>
   <nav class="s-nav">
-    <a href="#practice">Practice</a>
-    <a href="#works">Works</a>
-    <a href="#alfaaz">Alfaaz</a>
-    <a href="#history">History</a>
-    <a href="#cv">CV</a>
+    <a href="#home">Intro</a>
+    <a href="#latest">Latest Work</a>
+    <a href="#chapter-1">The Ground</a>
+    <a href="#chapter-2">Alfaaz</a>
+    <a href="#chapter-3">Exhibitions</a>
     <a href="#contact">Contact</a>
   </nav>
   <div class="s-bottom">
-    <a href="portfolio.pdf" class="dl-btn" download>↓ Download Portfolio PDF</a>
+    <a href="portfolio.pdf" class="dl-btn" download>↓ Download PDF</a>
     <div class="s-links">
       <a href="https://alfaazcollective.vercel.app" target="_blank">Alfaaz ↗</a>
-      <a href="mailto:your@email.com">Email</a>
+      <a href="mailto:wanisalik1@gmail.com">Email</a>
     </div>
   </div>
 </aside>
 
 <!-- Mobile header -->
 <header class="mob-hd">
-  <span class="mob-name">Salik [Surname]</span>
+  <span class="mob-name">Salik Wani</span>
   <a href="portfolio.pdf" class="mob-dl" download>↓ PDF</a>
 </header>
 
@@ -220,264 +179,149 @@
 
   <!-- Hero -->
   <section id="home" class="hero">
-    <div class="hero-tag">Artist · Cultural Organizer · Kashmir — Portfolio 2024</div>
+    <div class="hero-tag">A Career Journey</div>
     <h1 class="hero-name">
-      Sa<span class="acc">lik</span>
+      Salik<br><span class="acc">Wani</span>
     </h1>
-    <span class="hero-ur">فنکار · منتظم · کشمیر</span>
     <p class="hero-stmt">
-      Making images from the ground up, and building the conditions for others to do the same. Based in Srinagar.
+     درویش:خِرَد را چه مقام، گر آرزویِ سماع است؟
+مردِ سبیلو: “مردِ دل داند؛ خرد، بندِ مکان است
     </p>
-    <div class="hero-bg" aria-hidden="true">الفاظ</div>
   </section>
 
-  <!-- Practice -->
-  <section id="practice">
-    <div class="s-label">01 — Practice</div>
-    <h2 class="s-title fi">A practice<br>rooted in <em>place.</em></h2>
-    <p class="practice-stmt fi fi-d1">
-      My work moves between landscape and language — the valleys of Kashmir as both subject and site of inquiry. Through en plein air painting, I work directly with light, season, and terrain, making images that resist the scenic and the nostalgic. Alongside this, I organize through Alfaaz Collective: building exhibitions, workshops, and clubs that create the conditions for others to make and encounter art in a region where those conditions are often absent. These two practices — making and organizing — are not separate. Both are concerned with attention: to what is here, and to what could be.
+  <!-- LATEST WORK -->
+  <section id="latest" class="section-pad">
+    <div class="s-label">01 — Output</div>
+    <h2 class="c-title fi"><em>Latest</em> Work.</h2>
+    <p class="c-text fi fi-d1" style="margin-bottom: 3rem;">
+      Recent completions from the studio and the field. An immediate look at current material and visual inquiries.
     </p>
-    <div class="disc-grid fi fi-d2">
-      <div class="disc">
-        <div class="disc-n">01</div>
-        <div class="disc-name">Visual Art</div>
-        <span class="disc-ur">بصری فن</span>
-        <div class="disc-desc">En plein air painting<br>Fine arts & drawing<br>Exhibition-making</div>
-      </div>
-      <div class="disc">
-        <div class="disc-n">02</div>
-        <div class="disc-name">Organizing</div>
-        <span class="disc-ur">تنظیم</span>
-        <div class="disc-desc">Cultural programming<br>Workshops & residencies<br>Community initiatives</div>
-      </div>
-      <div class="disc">
-        <div class="disc-n">03</div>
-        <div class="disc-name">Digital</div>
-        <span class="disc-ur">رقمی</span>
-        <div class="disc-desc">Digital art awareness<br>Web & interface design<br>AI in creative practice</div>
-      </div>
-      <div class="disc">
-        <div class="disc-n">04</div>
-        <div class="disc-name">Psychology</div>
-        <span class="disc-ur">نفسیات</span>
-        <div class="disc-desc">MClinPsy candidate<br>Art–psychology intersection<br>Community mental health</div>
-      </div>
+    <div class="exh-gallery fi fi-d2">
+      <!-- Once on Cloudinary, swap this div for an img tag like: -->
+      <!-- <img src="URL" class="exh-img large" alt="Title" loading="lazy"> -->
+      <div class="exh-img large">Upload Latest Work</div>
+      <div class="exh-img large">Upload Latest Work</div>
+      <div class="exh-img large">Upload Latest Work</div>
     </div>
   </section>
 
-  <!-- Works -->
-  <section id="works">
-    <div class="s-label">02 — Selected Works</div>
-    <h2 class="s-title fi"><em>Images</em><br>from the field.</h2>
-    <div class="works-note-top fi fi-d1">
-      En plein air · Oil on canvas & board · Kashmir, 2020–present<br>
-      ↳ Replace each placeholder with an actual work image
-    </div>
-    <div class="works-grid fi fi-d2">
-      <div class="work">
-        <div class="work-ph"><div class="work-ph-inner"><div class="work-ph-box"></div><span class="work-ph-lbl">Image</span></div></div>
-        <div class="work-meta"><span class="work-title">Untitled (Dal, dawn)</span><span class="work-info">En plein air · 2023</span></div>
-      </div>
-      <div class="work">
-        <div class="work-ph"><div class="work-ph-inner"><div class="work-ph-box"></div><span class="work-ph-lbl">Image</span></div></div>
-        <div class="work-meta"><span class="work-title">Untitled (Ridge, autumn)</span><span class="work-info">En plein air · 2023</span></div>
-      </div>
-      <div class="work">
-        <div class="work-ph"><div class="work-ph-inner"><div class="work-ph-box"></div><span class="work-ph-lbl">Image</span></div></div>
-        <div class="work-meta"><span class="work-title">AIFACS Submission</span><span class="work-info">Fine art · 2022</span></div>
-      </div>
-      <div class="work">
-        <div class="work-ph"><div class="work-ph-inner"><div class="work-ph-box"></div><span class="work-ph-lbl">Image</span></div></div>
-        <div class="work-meta"><span class="work-title">Untitled (Valley floor)</span><span class="work-info">En plein air · 2022</span></div>
-      </div>
-      <div class="work">
-        <div class="work-ph"><div class="work-ph-inner"><div class="work-ph-box"></div><span class="work-ph-lbl">Image</span></div></div>
-        <div class="work-meta"><span class="work-title">Study (Light on water)</span><span class="work-info">Sketch · 2022</span></div>
-      </div>
-      <div class="work">
-        <div class="work-ph"><div class="work-ph-inner"><div class="work-ph-box"></div><span class="work-ph-lbl">Image</span></div></div>
-        <div class="work-meta"><span class="work-title">Untitled (Winter field)</span><span class="work-info">En plein air · 2021</span></div>
-      </div>
-    </div>
-    <div class="works-note">Contact for full digital portfolio with high-resolution images</div>
-  </section>
-
-  <!-- Alfaaz Collective -->
-  <section id="alfaaz">
-    <div class="s-label">03 — Alfaaz Collective</div>
-    <div class="alfaaz-hd fi">
-      <h2 class="s-title" style="margin-bottom:0">Building<br>the <em>conditions.</em></h2>
-      <a href="https://alfaazcollective.vercel.app" target="_blank" class="alfaaz-link">alfaazcollective.vercel.app ↗</a>
-    </div>
-    <p class="alfaaz-desc fi fi-d1">
-      Alfaaz Collective is an art, culture, and literature organization co-founded in Kashmir in 2020. Through exhibitions, en plein air sessions, workshops, and sustained club programming — covering photography, philosophy, art &amp; craft, literature, and film — it creates ongoing space for Kashmiri creative voices, particularly at the intersection of art, language, and cultural memory.
-    </p>
+  <!-- THE JOURNEY -->
+  <section class="section-pad">
+    <div class="s-label">02 — The Journey</div>
     
-    <!-- Gallery Grid for Exhibitions -->
-    <div class="exh-list">
+    <div class="timeline">
       
-      <!-- Khayaal 2024 -->
-      <div class="exh-item fi">
-        <div class="exh-row">
-          <span class="exh-n">I</span>
-          <div><span class="exh-title">Khayaal — خیال</span><span class="exh-sub">Group Exhibition · Organized & Participated</span></div>
-          <span class="exh-yr">2024</span>
+      <!-- Track 1: Plein Air -->
+      <div id="chapter-1" class="chapter fi">
+        <span class="c-meta">Ongoing Thread</span>
+        <h2 class="c-title">The <em>Ground.</em></h2>
+        <p class="c-text">
+          My visual practice begins with the landscape of Kashmir. Moving away from heavily romanticized depictions of the valley, I work directly with the terrain through <em>en plein air</em> painting. These works run constantly alongside my other projects—they are foundational studies of light, season, and geography, documenting what is actually here.
+        </p>
+        
+        <span class="gallery-label">Selected Field Works</span>
+        <div class="exh-gallery">
+          <div class="exh-img">Dal, Dawn (2023)</div>
+          <div class="exh-img">Ridge, Autumn (2023)</div>
+          <div class="exh-img">Valley Floor (2022)</div>
+          <div class="exh-img">Winter Field (2021)</div>
+          <div class="exh-img">Study: Light (2021)</div>
+        </div>
+      </div>
+
+      <!-- Track 2: Alfaaz Collective -->
+      <div id="chapter-2" class="chapter fi">
+        <span class="c-meta">Est. 2020</span>
+        <h2 class="c-title">The <em>Collective.</em></h2>
+        <p class="c-text">
+          Working independently highlighted a stark reality: the spaces required to make, critique, and encounter art in this region are often absent. In 2020, I co-founded <strong>Alfaaz Collective</strong>. It is an infrastructure project running parallel to my art. Through sustained club programming covering philosophy, photography, and literature, it creates a breathing space for Kashmiri creative voices.
+        </p>
+        
+        <span class="gallery-label">Community & Workshops</span>
+        <div class="exh-gallery" style="margin-bottom: 0;">
+          <div class="exh-img">Upload Alfaaz Photo</div>
+          <div class="exh-img">Upload Alfaaz Photo</div>
+          <div class="exh-img">Upload Alfaaz Photo</div>
+        </div>
+      </div>
+
+      <!-- Track 3: Exhibitions -->
+      <div id="chapter-3" class="chapter fi">
+        <span class="c-meta">2020 — 2024</span>
+        <h2 class="c-title">The <em>Exhibitions.</em></h2>
+        <p class="c-text">
+          The culmination of the collective's organizing and my visual practice. These exhibitions serve as critical checkpoints in the journey, where internal curation meets public encounter.
+        </p>
+
+        <!-- Khayaal 2024 -->
+        <div class="exh-meta-row">
+          <div>
+            <span class="em-title">Khayaal — خیال</span>
+            <span class="em-sub">Group Exhibition · Organized & Participated</span>
+          </div>
+          <span class="em-year">2024</span>
         </div>
         <div class="exh-gallery">
-          <!-- Replace these divs with real img tags like: <img src="khayaal1.jpg" class="exh-img" loading="lazy" alt="Khayaal Exhibition"> -->
-          <div class="exh-img">Upload Photo</div>
           <div class="exh-img">Upload Photo</div>
           <div class="exh-img">Upload Photo</div>
           <div class="exh-img">Upload Photo</div>
         </div>
-      </div>
 
-      <!-- Bayaan 2023 -->
-      <div class="exh-item fi fi-d1">
-        <div class="exh-row">
-          <span class="exh-n">II</span>
-          <div><span class="exh-title">Bayaan — بیان</span><span class="exh-sub">Group Exhibition · Organized & Participated</span></div>
-          <span class="exh-yr">2023</span>
+        <!-- Bayaan 2023 -->
+        <div class="exh-meta-row">
+          <div>
+            <span class="em-title">Bayaan — بیان</span>
+            <span class="em-sub">Group Exhibition · Organized & Participated</span>
+          </div>
+          <span class="em-year">2023</span>
         </div>
         <div class="exh-gallery">
           <div class="exh-img">Upload Photo</div>
           <div class="exh-img">Upload Photo</div>
           <div class="exh-img">Upload Photo</div>
         </div>
-      </div>
 
-      <!-- Kaamil 2022 -->
-      <div class="exh-item fi fi-d2">
-        <div class="exh-row">
-          <span class="exh-n">III</span>
-          <div><span class="exh-title">Kaamil — کامل</span><span class="exh-sub">Group Exhibition · Organized & Participated</span></div>
-          <span class="exh-yr">2022</span>
+        <!-- Kaamil 2022 -->
+        <div class="exh-meta-row">
+          <div>
+            <span class="em-title">Kaamil — کامل</span>
+            <span class="em-sub">Group Exhibition · Organized & Participated</span>
+          </div>
+          <span class="em-year">2022</span>
         </div>
         <div class="exh-gallery">
           <div class="exh-img">Upload Photo</div>
           <div class="exh-img">Upload Photo</div>
-          <div class="exh-img">Upload Photo</div>
         </div>
-      </div>
 
-      <!-- Harud 2020 -->
-      <div class="exh-item fi fi-d3">
-        <div class="exh-row">
-          <span class="exh-n">IV</span>
-          <div><span class="exh-title">Harud — ہرُد</span><span class="exh-sub">Group Exhibition · Organized & Participated</span></div>
-          <span class="exh-yr">2020</span>
+        <!-- Harud 2020 -->
+        <div class="exh-meta-row">
+          <div>
+            <span class="em-title">Harud — ہرُد</span>
+            <span class="em-sub">Group Exhibition · Organized & Participated</span>
+          </div>
+          <span class="em-year">2020</span>
         </div>
-        <div class="exh-gallery">
-          <div class="exh-img">Upload Photo</div>
+        <div class="exh-gallery" style="margin-bottom: 3rem;">
           <div class="exh-img">Upload Photo</div>
           <div class="exh-img">Upload Photo</div>
         </div>
-      </div>
-
-      <!-- Ongoing Programs -->
-      <div class="exh-item fi">
-        <div class="exh-row">
-          <span class="exh-n">↺</span>
-          <div><span class="exh-title">En Plein Air Sessions & Clubs</span><span class="exh-sub">Ongoing · Landscape Painting, Philosophy, Photography</span></div>
-          <span class="exh-yr">2020–</span>
+        
+        <p class="c-text" style="margin-bottom: 1.5rem; font-size: 1rem;">
+          <em>Notable External Participations:</em>
+        </p>
+        <div class="exh-meta-row" style="border: none; padding:0; margin-bottom: 0.5rem;">
+          <div><span class="em-title" style="font-style: normal; font-size: 1.15rem;">AIFACS Annual Exhibition</span><span class="em-sub">All India Fine Arts & Crafts Society, New Delhi</span></div>
+          <span class="em-year">2022</span>
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- History -->
-  <section id="history">
-    <div class="s-label">04 — Participation</div>
-    <h2 class="s-title fi">Beyond<br>the <em>Collective.</em></h2>
-    <div class="exh-list"> <!-- Using old list class here intentionally for simple layout -->
-      <div class="exh-item fi">
-        <div class="exh-row">
-          <span class="exh-n">★</span>
-          <div><span class="exh-title">AIFACS Annual Exhibition</span><span class="exh-sub">All India Fine Arts &amp; Crafts Society · New Delhi</span></div>
-          <span class="exh-yr">2022</span>
-        </div>
-      </div>
-      <div class="exh-item fi fi-d1">
-        <div class="exh-row">
-          <span class="exh-n">⬡</span>
-          <div><span class="exh-title">National Climbing Championship</span><span class="exh-sub">Sport Climbing · National Level</span></div>
-          <span class="exh-yr">2021</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CV -->
-  <section id="cv">
-    <div class="s-label">05 — CV</div>
-    <h2 class="s-title fi"><em>Curriculum</em><br>Vitæ</h2>
-
-    <div class="cv-block fi">
-      <div class="cv-cat">Education</div>
-      <div class="cv-items">
-        <div class="cv-item">
-          <div class="cv-t">MClinPsy — MA Clinical Psychology</div>
-          <div class="cv-m">GGSIPU · RCI · 2026 Candidate</div>
-        </div>
-        <div class="cv-item">
-          <div class="cv-t">[Bachelor's Degree]</div>
-          <div class="cv-m">[University] · [Year]</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cv-block fi">
-      <div class="cv-cat">Practice</div>
-      <div class="cv-items">
-        <div class="cv-item">
-          <div class="cv-t">Co-founder &amp; Lead Organizer</div>
-          <div class="cv-m">Alfaaz Collective · Srinagar, Kashmir · 2020–Present</div>
-        </div>
-        <div class="cv-item">
-          <div class="cv-t">Visual Artist — En Plein Air</div>
-          <div class="cv-m">Independent Practice · 2018–Present</div>
-        </div>
-        <div class="cv-item">
-          <div class="cv-t">Digital Art &amp; Web Development</div>
-          <div class="cv-m">Independent · 2020–Present</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cv-block fi">
-      <div class="cv-cat">Exhibitions</div>
-      <div class="cv-items">
-        <div class="cv-item">
-          <div class="cv-t">AIFACS Annual Exhibition</div>
-          <div class="cv-m">All India Fine Arts &amp; Crafts Society · New Delhi · 2022</div>
-        </div>
-        <div class="cv-item">
-          <div class="cv-t">Khayaal · Bayaan · Kaamil · Harud</div>
-          <div class="cv-m">Alfaaz Collective · Kashmir · 2020–2024</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cv-block fi">
-      <div class="cv-cat">Sport &amp; Other</div>
-      <div class="cv-items">
-        <div class="cv-item">
-          <div class="cv-t">National Climbing Championship</div>
-          <div class="cv-m">Sport Climbing · 2021</div>
-        </div>
-        <div class="cv-item">
-          <div class="cv-t">Interests</div>
-          <div class="cv-m">Rock climbing · Hiking · Reading · Urdu &amp; Persian literature</div>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact">
-    <div class="s-label">06 — Contact</div>
+  <section id="contact" class="section-pad">
+    <div class="s-label">03 — Connect</div>
     <div class="contact-grid">
       <div>
         <h2 class="contact-h fi">Let's<br><em>talk.</em></h2>
@@ -494,13 +338,9 @@
           <span class="c-val">alfaazcollective.vercel.app</span>
           <span class="c-arr">↗</span>
         </a>
-        <a href="https://instagram.com/@[handle]" target="_blank" class="c-row">
-          <span class="c-lbl">Instagram</span>
-          <span class="c-val">@[handle]</span>
-          <span class="c-arr">↗</span>
-        </a>
+        
         <a href="portfolio.pdf" download class="c-row">
-          <span class="c-lbl">Download Portfolio</span>
+          <span class="c-lbl">Download Full Journey</span>
           <span class="c-val">PDF · A4</span>
           <span class="c-arr">↓</span>
         </a>
@@ -509,7 +349,7 @@
   </section>
 
   <footer>
-    <span class="f-copy">© 2024 Salik [Surname] · Srinagar, Kashmir</span>
+    <span class="f-copy">© 2024 Salik Wani · Srinagar, Kashmir</span>
     <span class="f-copy">alfaazcollective.vercel.app</span>
   </footer>
 
@@ -522,8 +362,8 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fi').forEach(el => io.observe(el));
 
-  // Active nav
-  const secs = document.querySelectorAll('section[id]');
+  // Active nav mapping
+  const targets = document.querySelectorAll('section[id], div[id^="chapter"]');
   const links = document.querySelectorAll('.s-nav a');
   const sio = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -533,8 +373,8 @@
         });
       }
     });
-  }, { threshold: 0.4 });
-  secs.forEach(s => sio.observe(s));
+  }, { threshold: 0.3 });
+  targets.forEach(t => sio.observe(t));
 </script>
 </body>
 </html>
